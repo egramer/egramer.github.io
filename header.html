@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EGRAMER</title>
+  <style>
+    /* Color palette */
+    :root {
+      --primary-color: #5d5cff;
+      --secondary-color: #ffa726;
+      --accent-color: #ffcc00;
+      --header-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      --text-color: #ffffff;
+      --nav-text-color: #333;
+    }
+
+    /* Global reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f5f7fa;
+    }
+
+    /* Header styling */
+    header {
+      background: var(--header-bg);
+      padding: 3rem 1rem;
+      text-align: center;
+      color: var(--text-color);
+      animation: headerEntrance 1s ease-out;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    header p {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      opacity: 0.85;
+    }
+
+    /* Navigation styling */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: navFadeIn 1s ease-out;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem;
+    }
+    nav ul li {
+      margin: 0 1rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--nav-text-color);
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    /* Keyframe animations */
+    @keyframes headerEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Egramer</h1>
+    <p>Where Creativity Meets Code</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects/index.html">Projects</a></li>
+      <li><a href="games/index.html">Games</a></li>
+    </ul>
+  </nav>
+</body>
+</html>
 
