@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EGRAMER</title>
+  <style>
+    :root {
+      --footer-bg: #333;
+      --footer-text: #fff;
+      --accent-color: #ffcc00;
+      --primary-color: #5d5cff;
+    }
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: #f5f7fa;
+    }
+    footer {
+      background: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 2rem 1rem;
+      animation: footerEntrance 1s ease-out;
+      font-size: 1rem;
+    }
+    footer p {
+      margin-bottom: 0.5rem;
+    }
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: var(--primary-color);
+    }
+    @keyframes footerEntrance {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer>
+    <p>&copy; 2025 egramer. Crafted with passion and innovation.</p>
+    <p>
+    </p>
+  </footer>
+</body>
+</html>
