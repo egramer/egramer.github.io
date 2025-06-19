@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GAMES | EGRAMER</title>
+  <title>Games | EGRAMER</title>
   <style>
-    /* Color definitions */
+    /* Define color variables for consistency */
     :root {
       --primary-color: #5d5cff;
       --secondary-color: #ffa726;
@@ -16,15 +16,17 @@
       --link-color: var(--primary-color);
     }
 
-    /* Global reset */
+    /* Reset defaults */
     *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       background: var(--bg-color);
@@ -32,24 +34,24 @@
       line-height: 1.6;
     }
 
-    /* Header with gradient background and entrance animation */
+    /* Header styling: gradient background and slide-down animation */
     header {
       background: var(--header-bg);
       color: #fff;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
       animation: slideDown 1s ease-out;
     }
     header h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin-bottom: 0.5rem;
     }
     header p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
 
-    /* Sticky navigation */
+    /* Navigation styling: sticky nav with hover animations */
     nav {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -82,12 +84,21 @@
     /* Container for page content */
     .container {
       max-width: 1200px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      margin: auto;
+      padding: 2rem;
       animation: fadeIn 1s ease-out;
     }
-    
-    /* Game grid and cards */
+
+    /* Section heading */
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--primary-color);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+
+    /* Game grid and card styling */
     .game-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -123,7 +134,7 @@
       text-decoration: underline;
     }
 
-    /* Footer styling */
+    /* Footer styling with slide-up animation */
     footer {
       background: #333;
       color: #fff;
@@ -138,17 +149,29 @@
       to   { opacity: 1; }
     }
     @keyframes slideDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    /* Responsive adjustments */
+    /* Responsive adjustments for small screens */
     @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
+      header h1 { font-size: 2.5rem; }
       nav ul { flex-direction: column; }
       nav ul li { margin: 0.5rem 0; }
     }
@@ -156,15 +179,15 @@
 </head>
 <body>
   <header>
-    <h1>My Games</h1>
-    <p>Discover interactive games that merge fun with innovation.</p>
+    <h1>Games at EGRAMER</h1>
+    <p>Immerse yourself in interactive experiences and playful innovation.</p>
   </header>
   
   <nav>
     <ul>
       <li><a href="../index.html">Home</a></li>
       <li><a href="../projects/index.html">Projects</a></li>
-      <li><a href="../games/index.html">Games</a></li>
+      <li><a href="index.html">Games</a></li>
     </ul>
   </nav>
   
@@ -175,12 +198,12 @@
         <!-- Example game card -->
         <div class="game-card">
           <h3>Game Title 1</h3>
-          <p>A brief description of the game, focusing on gameplay and innovative mechanics.</p>
+          <p>A brief description of the game and its unique mechanics. Dive into a coding adventure like no other!</p>
           <a href="#">Play Now</a>
         </div>
         <div class="game-card">
           <h3>Game Title 2</h3>
-          <p>A short overview of another game that demonstrates playful coding experiments.</p>
+          <p>This game explores innovative gameplay and interactive design. Experience cutting-edge fun!</p>
           <a href="#">Play Now</a>
         </div>
         <!-- Additional game cards can be added here -->
