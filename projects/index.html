@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects - My Developer Playground</title>
+  <title>PROJECTS | EGRAMER</title>
   <style>
-    /* Color definitions */
+    /* Define color variables for consistency */
     :root {
       --primary-color: #5d5cff;
       --secondary-color: #ffa726;
@@ -32,53 +32,6 @@
       line-height: 1.6;
     }
 
-    /* (Optional) Styles that apply to header and nav elements
-       If your external header.index already defines these, you may remove or adjust them */
-    header {
-      background: var(--header-bg);
-      color: #fff;
-      padding: 3rem 1rem;
-      text-align: center;
-      animation: slideDown 1s ease-out;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-    }
-    
-    nav {
-      background: #fff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      animation: fadeIn 1s ease-out;
-    }
-    nav ul {
-      display: flex;
-      justify-content: center;
-      list-style: none;
-      padding: 1rem;
-    }
-    nav ul li {
-      margin: 0 1rem;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: bold;
-      padding: 0.5rem 1rem;
-      transition: color 0.3s ease, transform 0.3s ease;
-    }
-    nav ul li a:hover {
-      color: var(--accent-color);
-      transform: scale(1.1);
-    }
-
     /* Container for page content */
     .container {
       max-width: 1200px;
@@ -87,7 +40,7 @@
       animation: fadeIn 1s ease-out;
     }
     
-    /* Project grid and cards */
+    /* Project grid and card styling */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -98,12 +51,12 @@
       background: #fff;
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     }
     .project-card h3 {
       margin-bottom: 0.5rem;
@@ -122,16 +75,7 @@
       color: var(--accent-color);
       text-decoration: underline;
     }
-
-    /* (Optional) Footer styling; if loaded externally, adjust accordingly */
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 1.5rem;
-      animation: slideUp 1s ease-out;
-    }
-
+    
     /* Keyframe animations */
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -145,17 +89,18 @@
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
-    /* Responsive tweaks */
+    
+    /* Responsive tweaks for smaller screens */
     @media (max-width: 768px) {
-      header h1 { font-size: 2rem; }
+      /* If your external nav is loaded, its own CSS may handle mobile stacking;
+         otherwise, adjust as needed here */
       nav ul { flex-direction: column; }
       nav ul li { margin: 0.5rem 0; }
     }
   </style>
 </head>
 <body>
-  <!-- Header placeholder -->
+  <!-- Header placeholder: content injected dynamically -->
   <div id="header-placeholder"></div>
   
   <!-- Main page content -->
@@ -179,11 +124,11 @@
     </section>
   </div>
 
-  <!-- Footer placeholder -->
+  <!-- Footer placeholder: content injected dynamically -->
   <div id="footer-placeholder"></div>
   
   <script>
-    // Function that loads an external HTML snippet into the specified selector
+    // Function that loads an external HTML snippet into a specified selector
     function loadHTML(selector, url) {
       fetch(url)
         .then(response => {
@@ -200,8 +145,10 @@
         });
     }
     
-    // Once the DOM is loaded, load the header and footer
+    // After the DOM is loaded, inject header and footer
     document.addEventListener('DOMContentLoaded', () => {
+      // Adjust these paths based on your file structure;
+      // This file is inside the projects folder.
       loadHTML('#header-placeholder', '../header.index');
       loadHTML('#footer-placeholder', '../footer.index');
     });
