@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PROJECTS | EGAMER</title>
+  <title>Projects - My Developer Playground</title>
   <style>
     /* Color definitions */
     :root {
@@ -32,7 +32,8 @@
       line-height: 1.6;
     }
 
-    /* Header styling with gradient and animation */
+    /* (Optional) Styles that apply to header and nav elements
+       If your external header.index already defines these, you may remove or adjust them */
     header {
       background: var(--header-bg);
       color: #fff;
@@ -48,8 +49,7 @@
       font-size: 1.1rem;
       margin-bottom: 1rem;
     }
-
-    /* Sticky navigation */
+    
     nav {
       background: #fff;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -123,7 +123,7 @@
       text-decoration: underline;
     }
 
-    /* Footer styling */
+    /* (Optional) Footer styling; if loaded externally, adjust accordingly */
     footer {
       background: #333;
       color: #fff;
@@ -155,19 +155,10 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>My Projects</h1>
-    <p>Explore a curated collection of my coding projects and creative experiments.</p>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="../projects/index.html">Projects</a></li>
-      <li><a href="../games/index.html">Games</a></li>
-    </ul>
-  </nav>
+  <!-- Header placeholder -->
+  <div id="header-placeholder"></div>
   
+  <!-- Main page content -->
   <div class="container">
     <section>
       <h2>Project Gallery</h2>
@@ -187,9 +178,33 @@
       </div>
     </section>
   </div>
+
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
   
-  <footer>
-    <p>&copy; 2025 egramer. Crafted with passion and innovation.</p>
-  </footer>
+  <script>
+    // Function that loads an external HTML snippet into the specified selector
+    function loadHTML(selector, url) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(html => {
+          document.querySelector(selector).innerHTML = html;
+        })
+        .catch(error => {
+          console.error('Error loading', url, error);
+        });
+    }
+    
+    // Once the DOM is loaded, load the header and footer
+    document.addEventListener('DOMContentLoaded', () => {
+      loadHTML('#header-placeholder', '../header.index');
+      loadHTML('#footer-placeholder', '../footer.index');
+    });
+  </script>
 </body>
 </html>
