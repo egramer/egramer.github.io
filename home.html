@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOME | EGRAMER</title>
+  <style>
+    /* Define color variables for consistency */
+    :root {
+      --primary-color: #5d5cff;
+      --secondary-color: #ffa726;
+      --accent-color: #ffcc00;
+      --bg-color: #f5f7fa;
+      --header-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      --text-color: #333;
+      --link-color: var(--primary-color);
+    }
+
+    /* Reset defaults */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header styling: gradient background and slide-down animation */
+    header {
+      background: var(--header-bg);
+      color: #fff;
+      padding: 4rem 1rem;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Navigation styling: sticky nav with hover animations */
+    nav {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: fadeIn 1s ease-out;
+    }
+    nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 1rem;
+    }
+    nav ul li {
+      margin: 0 1rem;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: var(--accent-color);
+      transform: scale(1.1);
+    }
+
+    /* Container for sections */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Section styling with hover effects */
+    section {
+      margin: 2rem 0;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--primary-color);
+      display: inline-block;
+      padding-bottom: 0.5rem;
+    }
+    section p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+    section a {
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    section a:hover {
+      color: var(--accent-color);
+      text-decoration: underline;
+    }
+    
+    /* Footer styling with slide-up animation */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      animation: slideUp 1s ease-out;
+    }
+
+    /* Keyframe animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive adjustments for small screens */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5rem; }
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 0.5rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to EGRAMER</h1>
+    <p>Explore projects and games where creativity meets code.</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects/index.html">Projects</a></li>
+      <li><a href="games/index.html">Games</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <section id="projects">
+      <h2>Projects</h2>
+      <p>Delve into a variety of coding projects—from innovative web applications to creative experiments.</p>
+      <a href="projects/index.html">View Projects</a>
+    </section>
+    
+    <section id="games">
+      <h2>Games</h2>
+      <p>Play and enjoy interactive games that blend fun with code. Discover playful and experimental game designs.</p>
+      <a href="games/index.html">Play Games</a>
+    </section>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 egramer. Crafted with passion and innovation.</p>
+  </footer>
+</body>
+</html>
