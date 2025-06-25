@@ -3,49 +3,56 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>EGRAMERR</title>
+  <title>EGRAMER</title>
   <style>
     /* full-screen reset */
-    html, body { margin:0; padding:0; width:100%; height:100%; overflow:hidden; background:#111; }
-    /* Dev-mode badge */
-    .dev‐mode {
+    html, body {
+      margin: 0; padding: 0;
+      width: 100%; height: 100%;
+      overflow: hidden;
+      background: #111;
+    }
+
+    /* Static Dev-Mode badge */
+    .dev-mode {
       position: fixed;
-      top: 1rem; right: 1rem;
+      top: 1rem;
+      right: 1rem;
       padding: .5rem 1rem;
       background: #e91e63;
       color: #fff;
       font: bold 1.2rem sans-serif;
       border-radius: 6px;
-      animation: bounce 3s infinite ease-in-out, spin 12s infinite linear;
       pointer-events: none;
-      z-index:1000;
+      z-index: 1000;
+      /* animation: bounce 3s infinite ease-in-out, spin 12s infinite linear; */
     }
-    @keyframes bounce {
-      0%,100%{transform:translateY(0)} 
-      50%{transform:translateY(-20px)}
-    }
-    @keyframes spin {
-      0%{transform:rotate(0)}
-      100%{transform:rotate(360deg)}
-    }
+
+    /* (optional) remove unused keyframes */
+    /* @keyframes bounce { … }
+       @keyframes spin   { … } */
+
     /* Slope game container fills entire viewport */
     #gameContainer {
       position: fixed;
-      top:0; left:0; right:0; bottom:0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: #231f20;
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     /* “Click to Play” button styling */
     #run_game {
       font: 1.2rem sans-serif;
       padding: .8rem 1.6rem;
-      background: #2c2c2c; color:#fff;
-      border:none; border-radius:4px;
-      cursor:pointer;
+      background: #2c2c2c;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
     }
-    #run_game:hover { background:#3f3f3f; }
+    #run_game:hover { background: #3f3f3f; }
   </style>
 </head>
 <body>
@@ -53,21 +60,20 @@
     const devMode = true;  // ← flip to false in production
 
     if (!devMode) {
-      // not in dev: bounce out to home
       window.location.href = "home.index";
     } else {
-      // in dev: show badge + slope
+      // static badge
       const badge = document.createElement("div");
-      badge.className = "dev‐mode";
+      badge.className = "dev-mode";
       badge.textContent = "🚧 Development Mode 🚧";
       document.body.appendChild(badge);
 
-      // inject slope container
+      // slope container
       const container = document.createElement("div");
       container.id = "gameContainer";
       document.body.appendChild(container);
 
-      // add “Click to Play” button
+      // play button
       const btn = document.createElement("button");
       btn.id = "run_game";
       btn.textContent = "Click here to play Slope";
