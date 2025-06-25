@@ -3,133 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Minimal Slot Machine Lever</title>
-  <style>
-    body {
-      background: #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-    }
+  <title>My Slot Machine</title>
 
-    .slot-machine {
-      position: relative;
-      width: 300px;
-      height: 400px;
-      background: linear-gradient(180deg, #f5d55e 0%, #d4a72c 100%);
-      border: 8px solid #333;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      overflow: hidden;
-    }
-
-    /* TOP LIGHTS */
-    .slot-machine::before {
-      content: "";
-      position: absolute;
-      top: -20px; left: 50%;
-      width: 220px; height: 60px;
-      background: #333;
-      border-radius: 120px 120px 0 0;
-      transform: translateX(-50%);
-    }
-    .slot-machine::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 50%;
-      width: 200px; height: 4px;
-      background: #f90;
-      transform: translateX(-50%);
-    }
-    .lights {
-      position: absolute;
-      top: 10px; left: 50%;
-      width: 180px;
-      display: flex;
-      justify-content: space-between;
-      transform: translateX(-50%);
-    }
-    .lights div {
-      width: 20px; height: 20px;
-      background: #f90;
-      border-radius: 50%;
-      box-shadow: 0 0 10px #f90;
-    }
-
-    /* REELS */
-    .reels {
-      position: absolute;
-      top: 80px; left: 20px;
-      width: 260px; height: 200px;
-      background: #111;
-      border: 4px solid #333;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 0 10px;
-    }
-    .reels img {
-      width: 60px;
-      filter: drop-shadow(0 0 4px rgba(0,0,0,0.8));
-    }
-
-    /* LEVER */
-    .lever-container {
-      position: absolute;
-      right: -20px; bottom: 60px;
-      width: 100px; height: 200px;
-      pointer-events: none; /* let img handle clicks */
-    }
-    .lever {
-      position: absolute;
-      right: 0; bottom: 0;
-      width: 80px;
-      transform-origin: 80% 10%;
-      transform: rotate(-10deg);
-      transition: transform 0.2s ease-in-out;
-      cursor: pointer;
-      pointer-events: all;
-    }
-    .lever.pulled {
-      transform: rotate(45deg) translateY(20px);
-    }
-  </style>
+  <!-- 1) Slot Machine CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/zacsan/html5-slot-machine@master/style.css"
+  />
 </head>
-<body>
+<body style="display:flex; flex-direction:column; align-items:center; padding:2rem;">
 
+  <!-- 2) Markup: one strip of symbols + a button -->
   <div class="slot-machine">
-    <div class="lights">
-      <div></div><div></div><div></div><div></div><div></div>
+    <div class="slot-machine__tiles">
+      <div>🍒</div>
+      <div>🍋</div>
+      <div>⭐️</div>
+      <div>7️⃣</div>
+      <div>🍊</div>
     </div>
-
-    <div class="reels">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Fruit_machine_cherries.svg" alt="Cherries" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Fruit_machine_lemon.svg" alt="Lemon" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Fruit_machine_seven.svg" alt="Seven" />
-    </div>
-
-    <div class="lever-container">
-      <img
-        id="lever"
-        class="lever"
-        src="https://upload.wikimedia.org/wikipedia/commons/1/12/Fruit_machine_handle.svg"
-        alt="Lever"
-      />
-    </div>
+    <button class="slot-machine__button">SPIN</button>
   </div>
 
+  <!-- 3) Slot Machine JS -->
+  <script src="https://cdn.jsdelivr.net/gh/zacsan/html5-slot-machine@master/slot-machine.js"></script>
   <script>
-    const lever = document.getElementById('lever');
-    lever.addEventListener('click', () => {
-      // pull down
-      lever.classList.add('pulled');
-      // return upright after animation
-      setTimeout(() => lever.classList.remove('pulled'), 300);
+    // grab your tiles container and button
+    const tiles  = document.querySelector('.slot-machine__tiles');
+    const button = document.querySelector('.slot-machine__button');
+
+    // create the machine (3 visible, 2 loops, 2s spin)
+    const machine = new SlotMachine({
+      tilesSelector: tiles,
+      visibleTiles: 3,
+      loops: 2,
+      duration: 2000
+    });
+
+    // wire up the button
+    button.addEventListener('click', () => {
+      button.disabled = true;
+      machine.spin().then(result => {
+        console.log('Stopped on:', result); 
+        button.disabled = false;
+      });
     });
   </script>
-
 </body>
 </html>
